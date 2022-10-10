@@ -5,6 +5,11 @@ class Languages extends Translations {
   Map<String, Map<String, String>> get keys => {
         'ar_SA': {
           'Login': 'تسجيل الدخول',
+          'SendCode': 'إرسال الكود',
+          'PLZEnterCode':
+              'من فضلك قم بإدخال كود التحقق المرسل من خلال رسالة نصية ',
+          'VerifyCode': 'كـود التحقق',
+          'ResendPeriodic': 'إعادة الإرسال خلال  ',
           'Setting': 'الإعدادات',
           'Nodata': 'لا توجد بيانات',
           'Home': 'الرئيسية',
@@ -20,6 +25,11 @@ class Languages extends Translations {
         },
         'en_US': {
           'Login': 'Login',
+          'SendCode': 'Send Code',
+          'PLZEnterCode':
+              'Pleaze enter verification code which sent by text message',
+          'VerifyCode': 'Verification Code',
+          'ResendPeriodic': 'Resend in ',
           'Setting': 'Settings',
           'Nodata': 'Empty data',
           'Home': 'Home',

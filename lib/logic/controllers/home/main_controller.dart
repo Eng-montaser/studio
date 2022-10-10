@@ -16,22 +16,27 @@ class MainController extends GetxController {
       MenuItems(
           label: 'Home'.tr,
           title: 'Home'.tr,
-          icon: CupertinoIcons.house_alt,
+          image: 'assets/images/house.png',
           body: HomeScreen()),
       MenuItems(
           label: 'Prints'.tr,
           title: 'Prints'.tr,
-          icon: CupertinoIcons.printer,
+          image: 'assets/images/printer.png',
           body: PrintsScreen()),
       MenuItems(
           label: 'Reserves'.tr,
           title: 'Reserves'.tr,
-          icon: CupertinoIcons.calendar_today,
+          image: 'assets/images/calendar.png',
           body: ReservesScreen()),
       MenuItems(
           label: 'ContactUs'.tr,
           title: 'ContactUs'.tr,
-          icon: CupertinoIcons.phone,
+          image: 'assets/images/account.png',
+          body: ContactUs()),
+      MenuItems(
+          label: 'ContactUs'.tr,
+          title: 'ContactUs'.tr,
+          image: 'assets/images/call.png',
           body: ContactUs()),
     ];
   }
@@ -50,11 +55,11 @@ class MainController extends GetxController {
 class MenuItems {
   final String label;
   final String title;
-  final IconData icon;
+  final String image;
   final Widget body;
   MenuItems(
       {required this.label,
-      required this.icon,
+      required this.image,
       required this.title,
       required this.body});
 }

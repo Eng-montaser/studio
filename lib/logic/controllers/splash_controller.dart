@@ -23,7 +23,7 @@ class SplashController extends GetxController {
   init() async {
     Timer(const Duration(seconds: 2), () async {
       var sysController = Get.put(SystemController(), permanent: true);
-      Get.toNamed(AppRoutes.main);
+      Get.toNamed(AppRoutes.login);
       /* await sysController.init().then((value) {
         if (sysController.loginStatus) {
           if (sysController.showOnBoard) {

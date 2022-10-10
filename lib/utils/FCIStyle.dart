@@ -35,8 +35,9 @@ class FCITextStyle {
 class FCIColors {
   static Color sidebarBackGroundColor() => Color(0xffeaecf8);
   static Color iconColor() => Color(0xffe69736);
-  static Color primaryColor() => Color(0xffba940b);
-  static Color accentColor() => Color(0xffa3aebe);
+  static Color primaryColor() => Color(0xff3c3c3c);
+  static Color accentColor() => Color(0xfff4f2f2);
+  static Color bottomBarColor() => Color(0xffd6cfcf);
   static Color lightBlueColor() => Color(0xff7f91d4);
   static Color textFieldColor() => Color(0xffefeff1);
   static Color whiteColor() => Color(0xffffffff);

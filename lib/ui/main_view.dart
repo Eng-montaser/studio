@@ -28,7 +28,7 @@ class _MainScreenState extends State<MainScreen> {
             bottomNavigationBar: BottomAppBar(
                 child: Container(
               decoration: BoxDecoration(
-                  color: FCIColors.primaryColor(),
+                  color: FCIColors.bottomBarColor(),
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(25),
                     topLeft: Radius.circular(25),
@@ -48,22 +48,28 @@ class _MainScreenState extends State<MainScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(controller.menuItems[index].icon,
-                            size:
-                                controller.selectedMenuItem == index ? 30 : 25,
-                            color: controller.selectedMenuItem == index
-                                ? FCIColors.whiteColor()
-                                : Colors.white70),
+                        Container(
+                          // height: 300.0,
+                          // width: 300,
+                          child: Image.asset(
+                            controller.menuItems[index].image,
+                            width: ScreenUtil().setWidth(
+                                controller.selectedMenuItem == index ? 30 : 25),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
                         Container(
                           alignment: Alignment.center,
                           width: FCISize.width(context) * 0.25,
                           child: Text(
                             '${controller.menuItems[index].label}',
-                            style: FCITextStyle.normal(
-                                controller.selectedMenuItem == index ? 18 : 15,
-                                color: controller.selectedMenuItem == index
-                                    ? FCIColors.whiteColor()
-                                    : Colors.white70),
+                            style: controller.selectedMenuItem == index
+                                ? FCITextStyle.bold(
+                                    16,
+                                  )
+                                : FCITextStyle.normal(
+                                    14,
+                                  ),
                           ),
                         ),
                       ],

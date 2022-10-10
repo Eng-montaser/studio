@@ -1,6 +1,6 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:studio/logic/bindings/bindings.dart';
-import 'package:studio/ui/login.dart';
+import 'package:studio/ui/authentication/login.dart';
 import 'package:studio/ui/main_view.dart';
 import 'package:studio/ui/splash_view.dart';
 
@@ -14,8 +14,7 @@ class AppRoutes {
         name: Routes.splash,
         page: () => SplashScreen(),
         binding: SplashBinding()),
-    GetPage(
-        name: Routes.login, page: () => LoginScreen(), binding: LoginBinding()),
+    GetPage(name: Routes.login, page: () => LoginScreen()),
     GetPage(name: Routes.main, page: () => MainScreen()),
   ];
 }

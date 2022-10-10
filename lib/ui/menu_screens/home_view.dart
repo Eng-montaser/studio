@@ -30,33 +30,121 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: FCIColors.whiteColor(),
-        elevation: 0,
-        leading: Container(),
-        bottom: PreferredSize(
-          preferredSize: Size.fromHeight(ScreenUtil().setHeight(35)),
-          child: Builder(builder: (context) {
-            return Container(
-              margin:
-                  EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
-              child: CupertinoSearchTextField(
-                placeholder: 'Search'.tr,
-                style: FCITextStyle.normal(18, height: 1.5),
-              ),
-            );
-          }),
-        ),
-      ),
-      backgroundColor: FCIColors.whiteColor(),
-      body: SingleChildScrollView(
-        child: Column(
+    Size size = MediaQuery.of(context).size;
+
+    return SafeArea(
+      child: Scaffold(
+        // backgroundColor: FCIColors.whiteColor(),
+        body: Stack(
+          alignment: Alignment.center,
           children: [
-            carouse(),
-            categories(),
-            frames(framimages, 'MostReqFrames'.tr),
-            frames(framimages, 'MostSoldFrames'.tr),
+            Positioned(
+              top: 0,
+              child: Container(
+                width: size.width,
+                height: ScreenUtil().setHeight(180),
+                // decoration: BoxDecoration(
+                //   color: FCIColors.primaryColor(),
+                //   image: new DecorationImage(
+                //     fit: BoxFit.cover,
+                //     opacity: .4,
+                //     alignment: Alignment.center,
+                //     colorFilter: ColorFilter.mode(
+                //         FCIColors.primaryColor(), BlendMode.dstATop),
+                //     image: new AssetImage(
+                //       'assets/images/back.jpg',
+                //     ),
+                //   ),
+                // ),
+                child: Image.asset(
+                  'assets/images/back.jpg',
+                  fit: BoxFit.cover,
+                  alignment: Alignment.center,
+                  //     fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            /* Positioned(
+              top: ScreenUtil().setHeight(45),
+              left: 0,
+              right: 10,
+              child: Container(
+                //  width: size.width,
+                //  height: size.height * .36,
+
+                child: Image.asset(
+                  'assets/images/logoWhite2.png',
+                  width: ScreenUtil().setWidth(100),
+                  height: ScreenUtil().setHeight(120),
+                  alignment: Alignment.center,
+                  //  color: Colors.transparent,
+                  // colorBlendMode: BlendMode.colorBurn,
+                  fit: BoxFit.contain,
+                  //     fit: BoxFit.cover),
+                ),
+              ),
+            ),*/
+            Positioned(
+              top: ScreenUtil().setHeight(0),
+              child: Container(
+                width: size.width,
+                height: ScreenUtil().setHeight(180),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromARGB(150, 0, 0, 0),
+                      Color.fromARGB(150, 0, 0, 0),
+                      Color.fromARGB(150, 0, 0, 0),
+                      Color.fromARGB(150, 0, 0, 0),
+                    ],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                  ),
+                ),
+                alignment: Alignment.bottomCenter,
+                padding: EdgeInsets.symmetric(
+                  vertical: 20.0,
+                ),
+                child: Image.asset(
+                  'assets/images/logoWhite2.png',
+                  width: ScreenUtil().setWidth(100),
+                  height: ScreenUtil().setHeight(120),
+                  alignment: Alignment.center,
+                  //  color: Colors.transparent,
+                  // colorBlendMode: BlendMode.colorBurn,
+                  fit: BoxFit.contain,
+                  //     fit: BoxFit.cover),
+                ),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))),
+              margin: EdgeInsets.only(top: ScreenUtil().setHeight(150)),
+              alignment: Alignment.topCenter,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: ScreenUtil().setHeight(40)),
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                          horizontal: ScreenUtil().setWidth(20)),
+                      child: CupertinoSearchTextField(
+                        placeholder: 'Search'.tr,
+                        style: FCITextStyle.normal(18, height: 1.5),
+                      ),
+                    ),
+                    carouse(),
+                    // categories(),
+                    frames(framimages, 'Prints'.tr),
+                    frames(framimages, 'Reserves'.tr),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -207,11 +295,43 @@ class _HomeScreenState extends State<HomeScreen> {
                         horizontal: ScreenUtil().setWidth(10)),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      child: Image.network(
-                        images[index],
-                        fit: BoxFit.cover,
-                        width: ScreenUtil().setWidth(100),
-                        height: ScreenUtil().setHeight(120),
+                      child: Stack(
+                        children: [
+                          Image.network(
+                            images[index],
+                            fit: BoxFit.cover,
+                            width: ScreenUtil().setWidth(100),
+                            height: ScreenUtil().setHeight(120),
+                          ),
+                          Positioned(
+                            bottom: 0.0,
+                            left: 0.0,
+                            right: 0.0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(200, 0, 0, 0),
+                                    Color.fromARGB(150, 0, 0, 0),
+                                    Color.fromARGB(100, 0, 0, 0),
+                                    Color.fromARGB(0, 0, 0, 0),
+                                  ],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                ),
+                              ),
+                              alignment: Alignment.bottomCenter,
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10.0,
+                              ),
+                              child: Text(
+                                'البومات',
+                                style: FCITextStyle.bold(16,
+                                    color: FCIColors.whiteColor()),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   )),
