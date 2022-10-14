@@ -60,7 +60,7 @@ class _MainScreenState extends State<MainScreen> {
                         ),
                         Container(
                           alignment: Alignment.center,
-                          width: FCISize.width(context) * 0.25,
+                          width: FCISize.width(context) * 0.20,
                           child: Text(
                             '${controller.menuItems[index].label}',
                             style: controller.selectedMenuItem == index

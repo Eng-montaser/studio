@@ -49,6 +49,11 @@ class FCIColors {
   static Color greenAccentColor() => Color(0xff98DAD9);
   static Color blueColor() => Color(0xff5689C0);
   static Color blackblueColor() => Color(0xff244D61);
+  static Color backColor() => Color(0xffF3F1F1);
+  //static Color buttonColor() => Color(0xff3B3B3B);
+  static Color textColor() => Color(0xff111111);
+  static Color buttonColor2() => Color(0xffC4938C);
+  static Color backColor2() => Color(0xffF5F1F1);
 }
 
 class FCISize {

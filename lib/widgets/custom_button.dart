@@ -237,3 +237,53 @@ class NotificationsSettingButton extends StatelessWidget {
     );
   }
 }
+
+class ImageButton extends StatelessWidget {
+  final String image;
+  final Function onTap;
+  const ImageButton({Key? key, required this.image, required this.onTap})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          onTap();
+        },
+        child: Image.asset(
+          image,
+          width: ScreenUtil().setWidth(35),
+          height: ScreenUtil().setHeight(35),
+        ));
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final String text;
+  final Function onTap;
+  const CustomButton({Key? key, required this.text, required this.onTap})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        onTap();
+      },
+      child: Container(
+        width: ScreenUtil().setHeight(200),
+        padding: FCIPadding.symmetric(width: 5, height: 10),
+        margin: FCIPadding.symmetric(height: 10),
+        decoration: BoxDecoration(
+            color: FCIColors.primaryColor(),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: FCIColors.blackaccenttColor())),
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: FCITextStyle.normal(18, color: Colors.white),
+        ),
+      ),
+    );
+  }
+}

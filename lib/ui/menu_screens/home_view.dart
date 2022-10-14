@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:studio/widgets/custom_background.dart';
 import 'package:studio/widgets/images_carousel.dart';
 
 import '../../utils/FCIStyle.dart';
@@ -32,121 +33,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    return SafeArea(
-      child: Scaffold(
-        // backgroundColor: FCIColors.whiteColor(),
-        body: Stack(
-          alignment: Alignment.center,
-          children: [
-            Positioned(
-              top: 0,
-              child: Container(
-                width: size.width,
-                height: ScreenUtil().setHeight(180),
-                // decoration: BoxDecoration(
-                //   color: FCIColors.primaryColor(),
-                //   image: new DecorationImage(
-                //     fit: BoxFit.cover,
-                //     opacity: .4,
-                //     alignment: Alignment.center,
-                //     colorFilter: ColorFilter.mode(
-                //         FCIColors.primaryColor(), BlendMode.dstATop),
-                //     image: new AssetImage(
-                //       'assets/images/back.jpg',
-                //     ),
-                //   ),
-                // ),
-                child: Image.asset(
-                  'assets/images/back.jpg',
-                  fit: BoxFit.cover,
-                  alignment: Alignment.center,
-                  //     fit: BoxFit.cover),
-                ),
-              ),
+    return HomeBackground(
+      image: 'assets/images/back.jpg',
+      child: Column(
+        children: [
+          SizedBox(height: ScreenUtil().setHeight(20)),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
+            child: CupertinoSearchTextField(
+              placeholder: 'Search'.tr,
+              style: FCITextStyle.normal(18, height: 1.5),
             ),
-            /* Positioned(
-              top: ScreenUtil().setHeight(45),
-              left: 0,
-              right: 10,
-              child: Container(
-                //  width: size.width,
-                //  height: size.height * .36,
-
-                child: Image.asset(
-                  'assets/images/logoWhite2.png',
-                  width: ScreenUtil().setWidth(100),
-                  height: ScreenUtil().setHeight(120),
-                  alignment: Alignment.center,
-                  //  color: Colors.transparent,
-                  // colorBlendMode: BlendMode.colorBurn,
-                  fit: BoxFit.contain,
-                  //     fit: BoxFit.cover),
-                ),
-              ),
-            ),*/
-            Positioned(
-              top: ScreenUtil().setHeight(0),
-              child: Container(
-                width: size.width,
-                height: ScreenUtil().setHeight(180),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
-                alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.symmetric(
-                  vertical: 20.0,
-                ),
-                child: Image.asset(
-                  'assets/images/logoWhite2.png',
-                  width: ScreenUtil().setWidth(100),
-                  height: ScreenUtil().setHeight(120),
-                  alignment: Alignment.center,
-                  //  color: Colors.transparent,
-                  // colorBlendMode: BlendMode.colorBurn,
-                  fit: BoxFit.contain,
-                  //     fit: BoxFit.cover),
-                ),
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20))),
-              margin: EdgeInsets.only(top: ScreenUtil().setHeight(150)),
-              alignment: Alignment.topCenter,
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(height: ScreenUtil().setHeight(40)),
-                    Container(
-                      margin: EdgeInsets.symmetric(
-                          horizontal: ScreenUtil().setWidth(20)),
-                      child: CupertinoSearchTextField(
-                        placeholder: 'Search'.tr,
-                        style: FCITextStyle.normal(18, height: 1.5),
-                      ),
-                    ),
-                    carouse(),
-                    // categories(),
-                    frames(framimages, 'Prints'.tr),
-                    frames(framimages, 'Reserves'.tr),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+          carouse(),
+          // categories(),
+          frames(framimages, 'Prints'.tr),
+          frames(framimages, 'Reserves'.tr),
+        ],
       ),
     );
   }

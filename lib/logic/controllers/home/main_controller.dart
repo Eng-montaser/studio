@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studio/ui/menu_screens/contactus_view.dart';
+import 'package:studio/ui/menu_screens/account_view.dart';
+import 'package:studio/ui/menu_screens/contactus_screens/contactus_view.dart';
 import 'package:studio/ui/menu_screens/home_view.dart';
 import 'package:studio/ui/menu_screens/prints_view.dart';
-import 'package:studio/ui/menu_screens/reserves_view.dart';
+import 'package:studio/ui/menu_screens/reserves_screens/reserves_view.dart';
 
 class MainController extends GetxController {
   int selectedMenuItem = 0;
@@ -29,10 +30,10 @@ class MainController extends GetxController {
           image: 'assets/images/calendar.png',
           body: ReservesScreen()),
       MenuItems(
-          label: 'ContactUs'.tr,
-          title: 'ContactUs'.tr,
+          label: 'MyAccount'.tr,
+          title: 'MyAccount'.tr,
           image: 'assets/images/account.png',
-          body: ContactUs()),
+          body: AccountScreen()),
       MenuItems(
           label: 'ContactUs'.tr,
           title: 'ContactUs'.tr,
