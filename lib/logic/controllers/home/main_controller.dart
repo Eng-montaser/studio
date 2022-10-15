@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:studio/ui/menu_screens/account_view.dart';
-import 'package:studio/ui/menu_screens/contactus_screens/contactus_view.dart';
-import 'package:studio/ui/menu_screens/home_view.dart';
-import 'package:studio/ui/menu_screens/prints_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/reserves_view.dart';
+import 'package:studio/ui/account/account_view.dart';
+import 'package:studio/ui/contactus_screens/contactus_view.dart';
+import 'package:studio/ui/home/home_view.dart';
+import 'package:studio/ui/prints/prints_view.dart';
+import 'package:studio/ui/reserves_screens/reserves_view.dart';
 
 class MainController extends GetxController {
   int selectedMenuItem = 0;

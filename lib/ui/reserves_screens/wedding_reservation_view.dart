@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/wedding_reservation_details_view.dart';
+import 'package:studio/ui/reserves_screens/wedding_reservation_details_view.dart';
 import 'package:studio/utils/FCIStyle.dart';
-import 'package:studio/widgets/custom_button.dart';
-import 'package:studio/widgets/custom_textfeild.dart';
+
 
 import '../../../logic/controllers/contact_us.dart';
 

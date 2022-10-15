@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:studio/logic/controllers/home/home_controller.dart';
+import 'package:studio/models/print.dart';
 import 'package:studio/widgets/custom_background.dart';
 import 'package:studio/widgets/images_carousel.dart';
 
@@ -21,36 +23,34 @@ class _HomeScreenState extends State<HomeScreen> {
     'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
     'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
   ];
-  final List<String> framimages = [
-    'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-    'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-    'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-    'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-    'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-  ];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return HomeBackground(
       image: 'assets/images/back.jpg',
-      child: Column(
-        children: [
-          SizedBox(height: ScreenUtil().setHeight(20)),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
-            child: CupertinoSearchTextField(
-              placeholder: 'Search'.tr,
-              style: FCITextStyle.normal(18, height: 1.5),
-            ),
-          ),
-          carouse(),
-          // categories(),
-          frames(framimages, 'Prints'.tr),
-          frames(framimages, 'Reserves'.tr),
-        ],
-      ),
+      child: GetBuilder<HomeController>(
+          init: HomeController(),
+          builder: (controller) {
+            return Column(
+              children: [
+                SizedBox(height: ScreenUtil().setHeight(20)),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: ScreenUtil().setWidth(20)),
+                  child: CupertinoSearchTextField(
+                    placeholder: 'Search'.tr,
+                    style: FCITextStyle.normal(18, height: 1.5),
+                  ),
+                ),
+                carouse(),
+                // categories(),
+                frames(controller.printDataList, 'Prints'.tr),
+                frames(controller.reserveDataList, 'Reserves'.tr),
+              ],
+            );
+          }),
     );
   }
 
@@ -149,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget frames(List<String> images, String label) {
+  Widget frames(List<PrintData> data, String label) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
           height: ScreenUtil().setWidth(120),
           margin: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(15)),
           child: ListView.builder(
-              itemCount: images.length,
+              itemCount: data.length,
               //  itemExtent: 10,
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
@@ -200,8 +200,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       child: Stack(
                         children: [
-                          Image.network(
-                            images[index],
+                          Image.asset(
+                            data[index].image!,
                             fit: BoxFit.cover,
                             width: ScreenUtil().setWidth(100),
                             height: ScreenUtil().setHeight(120),
@@ -228,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 vertical: 10.0,
                               ),
                               child: Text(
-                                'البومات',
+                                data[index].size!,
                                 style: FCITextStyle.bold(16,
                                     color: FCIColors.whiteColor()),
                               ),

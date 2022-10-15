@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:studio/route/route.dart';
 import 'package:studio/ui/account/myorders_view.dart';
 import 'package:studio/utils/FCIStyle.dart';
 import 'package:studio/widgets/custom_background.dart';
@@ -44,19 +45,24 @@ class _HomeScreenState extends State<AccountScreen> {
                 onTap: () {
                   Get.to(()=>MyOrdersScreen());
                 },
-                child: menuRow(Icons.shopping_bag_outlined, 'Myorders'.tr)),
-            menuRow(Icons.monetization_on_outlined, 'Mypoints'.tr),
-            menuRow(Icons.share_outlined, 'ShareApp'.tr),
-            menuRow(Icons.quick_contacts_dialer_outlined, 'TermsConditions'.tr),
-            menuRow(Icons.settings_outlined, 'Setting'.tr),
-            menuRow(Icons.login_sharp, 'Logout'.tr),
+                child: menuRow('assets/images/order.png', 'Myorders'.tr)),
+            menuRow('assets/images/money-bag.png', 'Mypoints'.tr),
+            menuRow('assets/images/share.png', 'ShareApp'.tr),
+            menuRow(
+                'assets/images/terms-and-conditions.png', 'TermsConditions'.tr),
+            menuRow('assets/images/settings.png', 'Setting'.tr),
+            GestureDetector(
+                onTap: () {
+                  Get.offAllNamed(AppRoutes.login);
+                },
+                child: menuRow('assets/images/logout.png', 'Logout'.tr)),
           ],
         ),
       ),
     );
   }
 
-  Widget menuRow(IconData iconData, String title) {
+  Widget menuRow(String image, String title) {
     return Container(
         padding: EdgeInsets.symmetric(
             vertical: ScreenUtil().setHeight(10),
@@ -64,7 +70,12 @@ class _HomeScreenState extends State<AccountScreen> {
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Row(children: [
-            Icon(iconData),
+            Image.asset(
+              image,
+              height: ScreenUtil().setWidth(35),
+              width: ScreenUtil().setWidth(35),
+              fit: BoxFit.contain,
+            ),
             SizedBox(width: ScreenUtil().setWidth(10)),
             Text(title, style: FCITextStyle.normal(16))
           ]),

@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/birth_reservation_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/commercial_reservation_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/model_reservation_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/movie_reservation_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/party_reservation_view.dart';
-import 'package:studio/ui/menu_screens/reserves_screens/wedding_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/birth_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/commercial_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/model_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/movie_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/party_reservation_view.dart';
+import 'package:studio/ui/reserves_screens/wedding_reservation_view.dart';
 import 'package:studio/widgets/custom_background.dart';
 
 import '../../../utils/FCIStyle.dart';
@@ -34,11 +34,12 @@ class _ReservesScreenState extends State<ReservesScreen> {
               customImageButton('زفاف', 'assets/images/wedding_home5.jpg', () {
                 Get.to(() => WeddingReservationView());
               }),
-              customImageButton('حفلات', 'assets/images/02.jpeg', () {
+              customImageButton('حفلات', 'assets/images/albn.jpg', () {
                 Get.to(() => PartyReservationView());
               }),
             ],
           ),
+          SizedBox(height: ScreenUtil().setHeight(20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -51,6 +52,7 @@ class _ReservesScreenState extends State<ReservesScreen> {
               }),
             ],
           ),
+          SizedBox(height: ScreenUtil().setHeight(20)),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

@@ -36,7 +36,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/preview.png'),
-                          fit: BoxFit.fill)),
+                          alignment: Alignment.bottomCenter,
+                          fit: BoxFit.cover)),
                 );
               })),
     );

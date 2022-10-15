@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:studio/ui/menu_screens/contactus_screens/email_view.dart';
+import 'package:studio/ui/contactus_screens/email_view.dart';
 import 'package:studio/widgets/custom_button.dart';
 
 import '../../../utils/FCIStyle.dart';

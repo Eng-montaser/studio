@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:studio/ui/prints/album.dart';
+import 'package:studio/ui/prints/layers.dart';
+import 'package:studio/ui/prints/papers.dart';
 import 'package:studio/widgets/custom_background.dart';
 
 import '../../utils/FCIStyle.dart';
@@ -25,9 +28,21 @@ class _PrintsScreenState extends State<PrintsScreen> {
           SizedBox(
             height: ScreenUtil().setHeight(20),
           ),
-          menuRow('assets/images/canab.jpeg', 'Layers'.tr),
-          menuRow('assets/images/book.jpeg', 'Albums'.tr),
-          menuRow('assets/images/pictures.jpeg', 'Papers'.tr),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => LayersScreen());
+              },
+              child: menuRow('assets/images/canab.jpeg', 'Layers'.tr)),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => AlbumsScreen());
+              },
+              child: menuRow('assets/images/book.jpeg', 'Albums'.tr)),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => PapersScreen());
+              },
+              child: menuRow('assets/images/pictures.jpeg', 'Papers'.tr)),
         ],
       ),
     );

@@ -34,6 +34,12 @@ class Languages extends Translations {
           'Layers': 'اللوحات',
           'Albums': 'الألبومات',
           'Papers': 'الورق',
+          'Graduates': 'حفلات',
+          'Wedding': 'زفاف',
+          'Trades': 'تجارى',
+          'Births': 'مواليد',
+          'Model': 'موديل',
+          'Cinema': 'سينيمائى',
         },
         'en_US': {
           'Login': 'Login',
@@ -66,6 +72,12 @@ class Languages extends Translations {
           'Layers': 'Paints',
           'Albums': 'Albums',
           'Papers': 'Papers',
+          'Graduates': 'Parts',
+          'Wedding': 'Wedding',
+          'Trades': 'Trades',
+          'Births': 'Births',
+          'Model': 'Models',
+          'Cinema': 'Cinema',
         },
       };
 }
