@@ -6,7 +6,6 @@ import 'package:studio/route/route.dart';
 import 'package:studio/utils/FCIStyle.dart';
 import 'package:studio/utils/languages.dart';
 
-// bool SHOWONBOARD = true;
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());

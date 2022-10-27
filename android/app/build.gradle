@@ -41,7 +41,11 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
-
+//    signingConfigs {
+//        debug {
+//            storeFile file("/home/eng/.android/debug.keystore")
+//        }
+//    }
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.studio.studio"

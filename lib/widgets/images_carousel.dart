@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:studio/utils/FCIStyle.dart';
+import 'package:studio/widgets/clippath.dart';
+import 'package:studio/widgets/triangle.dart';
 
 class ImagesCarousel extends StatefulWidget {
   List<String> networkImages;
@@ -31,31 +33,53 @@ class _ImagesCarouselState extends State<ImagesCarousel> {
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     child: Stack(
                       children: <Widget>[
-                        Image.network(item, fit: BoxFit.cover, width: 1000.0),
-                        Positioned(
-                          top: 0.0,
-                          left: 0.0,
-                          right: 0.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(200, 0, 0, 0),
-                                  Color.fromARGB(0, 0, 0, 0)
-                                ],
-                                end: Alignment.bottomCenter,
-                                begin: Alignment.topCenter,
+                        Container(
+                          width: 1000,
+                            foregroundDecoration:  BadgeDecoration(
+                              badgeColor: FCIColors.adsColor(),
+                              badgeSize: 155,
+
+                              textSpan: TextSpan(
+                                text: ' خصومات الصيف\n\n 50% ',
+                                       style: FCITextStyle.bold(16,
+                                           color: FCIColors.whiteColor()),
                               ),
                             ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 20.0, horizontal: 20.0),
-                            child: Text(
-                              'خصومات الصيف\n\n 50%',
-                              style: FCITextStyle.bold(18,
-                                  color: FCIColors.whiteColor()),
-                            ),
-                          ),
-                        ),
+                            child: Image.asset(item, fit: BoxFit.cover, width: 1000.0)),
+                        // Positioned(
+                        //   top: 0.0,
+                        //   left: 0.0,
+                        //   right: 0.0,
+                        //   child: Container(
+                        //
+                        //
+                        //   /*  decoration: BoxDecoration(
+                        //       boxShadow: [
+                        //         BoxShadow(
+                        //           color: FCIColors.backColor2(),
+                        //           spreadRadius: 5,
+                        //           blurRadius: 7,
+                        //           offset: Offset(0, 6), // changes position of shadow
+                        //         ),
+                        //       ],
+                        //       /*gradient: LinearGradient(
+                        //         colors: [
+                        //           Color.fromARGB(200, 0, 0, 0),
+                        //           Color.fromARGB(0, 0, 0, 0)
+                        //         ],
+                        //         end: Alignment.bottomCenter,
+                        //         begin: Alignment.topCenter,
+                        //       ),*/
+                        //     ),*/
+                        //     padding: EdgeInsets.symmetric(
+                        //         vertical: 20.0, horizontal: 20.0),
+                        //     child: Text(
+                        //       'خصومات الصيف\n\n 50%',
+                        //       style: FCITextStyle.bold(18,
+                        //           color: FCIColors.whiteColor()),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     )),
               ),

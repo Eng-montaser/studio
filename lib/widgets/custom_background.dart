@@ -31,6 +31,7 @@ class Background extends StatelessWidget {
                   color: FCIColors.primaryColor(),
                   image: new DecorationImage(
                     fit: BoxFit.cover,
+                    filterQuality: FilterQuality.low,
                     alignment: Alignment.bottomCenter,
                     colorFilter: ColorFilter.srgbToLinearGamma(),
                     image: new AssetImage(
@@ -125,6 +126,7 @@ class HomeBackground extends StatelessWidget {
                 child: Image.asset(
                   image,
                   fit: BoxFit.cover,
+                  filterQuality: FilterQuality.low,
                   alignment: Alignment.center,
                   //     fit: BoxFit.cover),
                 ),
@@ -157,6 +159,7 @@ class HomeBackground extends StatelessWidget {
                         width: ScreenUtil().setWidth(100),
                         height: ScreenUtil().setHeight(120),
                         alignment: Alignment.center,
+                        filterQuality: FilterQuality.low,
                         //  color: Colors.transparent,
                         // colorBlendMode: BlendMode.colorBurn,
                         fit: BoxFit.contain,

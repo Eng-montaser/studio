@@ -12,10 +12,12 @@ class LayersController extends GetxController {
 
   init() {
     paperDataList.value = [
-      PrintData(image: 'assets/images/A6.jpg', size: 'A6', price: 2.50),
-      PrintData(image: 'assets/images/A5.jpg', size: 'A5', price: 10),
-      PrintData(image: 'assets/images/A4.jpg', size: 'A4', price: 25),
-      PrintData(image: 'assets/images/A4.jpg', size: 'A4', price: 25),
+      PrintData(image: 'assets/images/1l.png', size: '15x20', price: 2.50),
+      PrintData(image: 'assets/images/2l.png', size: '20x30', price: 10),
+      PrintData(image: 'assets/images/3l.png', size: '30x40', price: 25),
+      PrintData(image: 'assets/images/4l.png', size: '50x70', price: 35),
+      PrintData(image: 'assets/images/5l.png', size: '60x90', price: 45),
+      PrintData(image: 'assets/images/6l.png', size: '70x100', price: 55),
     ];
   }
 

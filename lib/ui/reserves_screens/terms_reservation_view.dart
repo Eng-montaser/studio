@@ -142,7 +142,7 @@ class _ContactUsState extends State<TermsReservationView> {
                   height: FCISize.height(context) * 0.25,
                 ),
                 Container(
-                    width: FCISize.width(context),
+                    width: FCISize.width(context)-20,
                     alignment: Alignment.center,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,

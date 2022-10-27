@@ -15,7 +15,7 @@ class PapersController extends GetxController {
       PrintData(image: 'assets/images/A6.jpg', size: 'A6', price: 2.50),
       PrintData(image: 'assets/images/A5.jpg', size: 'A5', price: 10),
       PrintData(image: 'assets/images/A4.jpg', size: 'A4', price: 25),
-      PrintData(image: 'assets/images/A4.jpg', size: 'A4', price: 25),
+      PrintData(image: 'assets/images/2h.png', size: 'A3', price: 25),
     ];
   }
 

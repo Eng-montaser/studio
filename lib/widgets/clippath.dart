@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studio/utils/FCIStyle.dart';
 
 class BottomClipPath extends CustomClipper<Path> {
   var radius = 10.0;
@@ -72,4 +73,37 @@ class CustomClipTop extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+
+class TrianglePainter extends CustomClipper<Path>{
+
+  @override
+  Path getClip( Size size) {
+
+
+
+    Paint paint0 = Paint()
+      ..color = FCIColors.buttonColor2()
+      ..style = PaintingStyle.fill
+      ..strokeWidth = 1;
+
+
+    Path path0 = Path();
+    path0.moveTo(size.width,0);
+    path0.lineTo(size.width*0.4987500,0);
+    path0.lineTo(size.width,size.height*0.4940000);
+    path0.lineTo(size.width,0);
+    path0.close();
+
+    return path0;
+
+
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldDelegate) {
+    return false;
+  }
+
 }

@@ -60,23 +60,27 @@ class _PapersScreenState extends State<PapersScreen> {
                     itemCount: controller.paperDataList.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
-                        mainAxisSpacing: 8,
-                        crossAxisSpacing: 8,
-                        childAspectRatio: 1.5),
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 1),
                     itemBuilder: (context, index) {
                       return Card(
-                        margin: EdgeInsets.all(10),
+                      //  margin: EdgeInsets.all(10),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(7),
-                              child: Image.asset(
-                                '${controller.paperDataList[index].image!}',
-                                fit: BoxFit.fill,
-                                alignment: Alignment.centerRight,
-                                width: ScreenUtil().setWidth(150),
-                                height: ScreenUtil().setHeight(100),
+                            Container(
+                              margin: EdgeInsets.all(8),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(7),
+
+                                child: Image.asset(
+                                  '${controller.paperDataList[index].image!}',
+                                  fit: BoxFit.fill,
+                                  alignment: Alignment.centerRight,
+                                  /*width: ScreenUtil().setWidth(150),
+                                  height: ScreenUtil().setHeight(100),*/
+                                ),
                               ),
                             ),
                             Container(
@@ -89,11 +93,11 @@ class _PapersScreenState extends State<PapersScreen> {
                                 children: [
                                   Text(
                                     '${controller.paperDataList[index].size!}',
-                                    style: FCITextStyle.normal(14),
+                                    style: FCITextStyle.bold(16),
                                   ),
                                   Text(
                                     '${controller.paperDataList[index].price!} ${'RS'.tr}',
-                                    style: FCITextStyle.normal(14),
+                                    style: FCITextStyle.bold(16),
                                   ),
                                 ],
                               ),

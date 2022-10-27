@@ -57,13 +57,24 @@ class _PrintsScreenState extends State<PrintsScreen> {
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
         child: Stack(
           children: [
-            Image.asset(
+            /*Image.asset(
               image,
               fit: BoxFit.fill,
               width: double.infinity,
               height: ScreenUtil().setHeight(150),
               alignment: Alignment.topCenter,
-            ),
+            ),*/
+            Container(
+              width: double.infinity,
+              height: ScreenUtil().setHeight(150),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(image),
+                      alignment: Alignment.center,
+
+                      fit: BoxFit.cover)),
+              ),
+
             Positioned(
               bottom: 0.0,
               left: 0.0,

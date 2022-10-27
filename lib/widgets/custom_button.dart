@@ -271,7 +271,7 @@ class CustomButton extends StatelessWidget {
         onTap();
       },
       child: Container(
-        width: ScreenUtil().setHeight(200),
+        width: ScreenUtil().setHeight(180),
         padding: FCIPadding.symmetric(width: 5, height: 10),
         margin: FCIPadding.symmetric(height: 10),
         decoration: BoxDecoration(

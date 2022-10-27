@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:studio/route/route.dart';
 import 'package:studio/ui/account/myorders_view.dart';
+import 'package:studio/ui/reserves_screens/terms_reservation_view.dart';
 import 'package:studio/utils/FCIStyle.dart';
 import 'package:studio/widgets/custom_background.dart';
 
@@ -48,8 +49,13 @@ class _HomeScreenState extends State<AccountScreen> {
                 child: menuRow('assets/images/order.png', 'Myorders'.tr)),
             menuRow('assets/images/money-bag.png', 'Mypoints'.tr),
             menuRow('assets/images/share.png', 'ShareApp'.tr),
-            menuRow(
-                'assets/images/terms-and-conditions.png', 'TermsConditions'.tr),
+            GestureDetector(
+              onTap: () {
+                Get.to(()=>TermsReservationView());
+              },
+              child: menuRow(
+                  'assets/images/terms-and-conditions.png', 'TermsConditions'.tr),
+            ),
             menuRow('assets/images/settings.png', 'Setting'.tr),
             GestureDetector(
                 onTap: () {

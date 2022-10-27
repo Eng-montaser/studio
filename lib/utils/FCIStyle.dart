@@ -37,7 +37,7 @@ class FCIColors {
   static Color iconColor() => Color(0xffe69736);
   static Color primaryColor() => Color(0xff3c3c3c);
   static Color accentColor() => Color(0xfff4f2f2);
-  static Color bottomBarColor() => Color(0xffd6cfcf);
+  static Color bottomBarColor() => Color(0xffD6CFCF);
   static Color lightBlueColor() => Color(0xff7f91d4);
   static Color textFieldColor() => Color(0xffefeff1);
   static Color whiteColor() => Color(0xffffffff);
@@ -50,7 +50,7 @@ class FCIColors {
   static Color blueColor() => Color(0xff5689C0);
   static Color blackblueColor() => Color(0xff244D61);
   static Color backColor() => Color(0xffF3F1F1);
-  //static Color buttonColor() => Color(0xff3B3B3B);
+  static Color adsColor() => Color(0xff71543e);
   static Color textColor() => Color(0xff111111);
   static Color buttonColor2() => Color(0xffC4938C);
   static Color backColor2() => Color(0xffF5F1F1);
