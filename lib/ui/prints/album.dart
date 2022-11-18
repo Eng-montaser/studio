@@ -76,6 +76,7 @@ class _AlbumsScreenState extends State<AlbumsScreen> {
                                 child: Image.asset(
                                   '${controller.paperDataList[index].image!}',
                                   fit: BoxFit.fill,
+                                  filterQuality: FilterQuality.low,
                                   alignment: Alignment.centerRight,
                                   // width: ScreenUtil().setWidth(150),
                                   // height: ScreenUtil().setHeight(100),

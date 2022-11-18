@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:studio/route/route.dart';
 import 'package:studio/ui/account/myorders_view.dart';
+import 'package:studio/ui/reserves_screens/calendar_view.dart';
 import 'package:studio/ui/reserves_screens/terms_reservation_view.dart';
 import 'package:studio/utils/FCIStyle.dart';
 import 'package:studio/widgets/custom_background.dart';
@@ -47,7 +48,10 @@ class _HomeScreenState extends State<AccountScreen> {
                   Get.to(()=>MyOrdersScreen());
                 },
                 child: menuRow('assets/images/order.png', 'Myorders'.tr)),
-            menuRow('assets/images/money-bag.png', 'Mypoints'.tr),
+            GestureDetector(
+                onTap: () {
+                  Get.to(()=>CalendarScreen());
+                },child: menuRow('assets/images/money-bag.png', 'Mypoints'.tr)),
             menuRow('assets/images/share.png', 'ShareApp'.tr),
             GestureDetector(
               onTap: () {

@@ -50,6 +50,7 @@ class FCIColors {
   static Color blueColor() => Color(0xff5689C0);
   static Color blackblueColor() => Color(0xff244D61);
   static Color backColor() => Color(0xffF3F1F1);
+  static Color calendarColor() => Color(0xffF3F1F1);
   static Color adsColor() => Color(0xff71543e);
   static Color textColor() => Color(0xff111111);
   static Color buttonColor2() => Color(0xffC4938C);

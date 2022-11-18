@@ -35,8 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: size.height,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/images/preview.png'),
+                          image: AssetImage('assets/images/preview.png',),
                           alignment: Alignment.bottomCenter,
+                          filterQuality: FilterQuality.low,
                           fit: BoxFit.cover)),
                 );
               })),

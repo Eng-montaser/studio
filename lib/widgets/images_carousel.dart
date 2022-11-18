@@ -158,32 +158,10 @@ class _ImagesCarouselState2 extends State<ImagesCarousel2> {
                         Image.asset(
                           item,
                           fit: BoxFit.cover,
+                          filterQuality: FilterQuality.low,
                           width: 1000.0,
                         ),
-                        // Positioned(
-                        //   top: 0.0,
-                        //   left: 0.0,
-                        //   right: 0.0,
-                        //   child: Container(
-                        //     decoration: BoxDecoration(
-                        //       gradient: LinearGradient(
-                        //         colors: [
-                        //           Color.fromARGB(200, 0, 0, 0),
-                        //           Color.fromARGB(0, 0, 0, 0)
-                        //         ],
-                        //         end: Alignment.bottomCenter,
-                        //         begin: Alignment.topCenter,
-                        //       ),
-                        //     ),
-                        //     padding: EdgeInsets.symmetric(
-                        //         vertical: 20.0, horizontal: 20.0),
-                        //     child: Text(
-                        //       'خصومات الصيف\n\n 50%',
-                        //       style: FCITextStyle.bold(18,
-                        //           color: FCIColors.whiteColor()),
-                        //     ),
-                        //   ),
-                        // ),
+
                       ],
                     )),
               ),

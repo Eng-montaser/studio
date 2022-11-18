@@ -55,6 +55,7 @@ dependencies:
   fluttertoast: ^8.0.9
   badges: ^2.0.3
   auto_size_text: ^3.0.0
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   flutter_test:
