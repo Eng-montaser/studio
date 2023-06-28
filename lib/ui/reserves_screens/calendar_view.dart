@@ -263,7 +263,7 @@ calendarStyle: CalendarStyle(
 cellMargin: EdgeInsets.zero,
 
   rowDecoration: BoxDecoration(
-      color: FCIColors.calendarColor()
+      color: FCIColors.avatarColor()
   ),
   todayDecoration: BoxDecoration(
     color: FCIColors.buttonColor2(),

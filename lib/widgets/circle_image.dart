@@ -39,3 +39,39 @@ Widget circleImage(double radius, String network, String filePath) {
     ),
   );
 }
+Widget defaultImage(double radius, String network, String filePath) {
+  if(filePath==null)
+  print('file Null');
+  print(network);
+  return Container(
+    height: ScreenUtil().setWidth(radius),
+    width: ScreenUtil().setWidth(radius),
+    child: ClipRRect(
+        borderRadius: BorderRadius.circular(150),
+        child: filePath != ''
+            ? Image.file(
+          File(filePath),
+          fit: BoxFit.fill,
+        )
+            : network == null
+            ?
+        Image.asset(
+          'assets/images/logo.png',
+          fit: BoxFit.fill,
+        )
+            :
+        CachedNetworkImage(
+          imageUrl: network,
+          fit: BoxFit.fill,
+          progressIndicatorBuilder:
+              (context, url, downloadProgress) =>
+              CircularProgressIndicator(
+                  value: downloadProgress.progress),
+          errorWidget: (context, url, error) => Image.asset(
+            'assets/images/logo.png',
+            fit: BoxFit.fill,
+          ),
+        )
+    ),
+  );
+}

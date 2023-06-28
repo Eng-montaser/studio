@@ -5,20 +5,38 @@ import 'package:http/http.dart' as http;
 import '../api.dart';
 
 class PostService extends BaseApi {
-  Future<http.Response> register(registerData) async {
-    return await api.httpPost("register", registerData);
+  Future<http.Response> getUser() async {
+    return await api.httpPost('Customer/Profile',null);
+  }
+  Future<http.Response> register1(registerData) async {
+    return await api.httpPostWithoutToken("General/Customers/NewRegistrationStep1", registerData);
+  }
+Future<http.Response> register2(String step1id,String smscode) async {
+    return await api.httpPostreg("General/Customers/NewRegistrationStep2", {'step1id':step1id,'smscode':smscode});
   }
 
-  Future<http.Response> login(loginData) async {
-    return await api.httpPost("login", loginData);
+  Future<http.Response> login(String username,String password) async {
+    return await api.httpPostWithoutToken("Auth/Token/Authenticate", {'Username':username,
+    'Password':password});
+  }
+  Future<http.Response> refreshToken() async {
+    return await api.httpPostrefresh("Auth/Token/refreshToken");
+  }
+Future<http.Response> loginst1(String mobileno) async {
+    return await api.httpPostWithoutToken("Auth/Token/AuthenticateBySMSStep1", {'mobileno':mobileno});
+  }
+Future<http.Response> loginst2(String  mobileno,String step1id,String smscode) async {
+    return await api.httpPostWithoutToken("Auth/Token/AuthenticateBySMSStep1", {'mobileno':mobileno,
+    'step1id':'$step1id','smscode':smscode});
   }
 
-  Future<http.Response> changePassword(changePasswordData) async {
-    return await api.httpPost("change_password", changePasswordData);
+  Future<http.Response> getCars() async {
+    return await api.httpPost('Customer/Cars',null
+    );
   }
 
   Future<http.Response> logout() async {
-    return await api.httpPost("logout", {});
+    return await api.httpPost("auth/logout",{});
   }
 
   Future<http.Response> addBid(int id, String amount) async {
@@ -37,11 +55,33 @@ class PostService extends BaseApi {
     }
   }
 
-  Future<http.Response> addCar(List<File> images, data) async {
-    if (images.length > 0) {
-      return await api.httpPostWithFiles("products", data, filesList: images);
-    } else {
-      return await api.httpPost("products", data);
-    }
+
+  Future<http.Response> addCar( data) async {
+
+      return await api.httpPost("Customer/AddCar", data,);
+
+  }
+  Future<http.Response> updateCar( data,Map<String,dynamic> param) async {
+
+      return await api.httpPost("Customer/UpdaetCar", data,param: param);
+
+  }
+  Future<http.Response> deleteCar( Map<String,dynamic> param) async {
+
+      return await api.httpPost("Customer/DeleteCar",null ,param: param);
+
+  }
+  Future<http.Response> editCar( data,{File? file}) async {
+    //return await api.httpPostWithFile("cars/update", data,file: file);
+    if(file != null)
+      return await api.httpPostWithFile("cars/update", data,file: file,);
+    else
+      return await api.httpPost("cars/update", data,);
+  }
+  Future<http.Response> createJobCard( data) async {
+      return await api.httpPost("orders/store", data);
+  }
+  Future<http.Response> editJobCard( data) async {
+    return await api.httpPost("orders/update", data);
   }
 }

@@ -9,7 +9,7 @@ class FCITextStyle {
       double? height,
       FontStyle? fontStyle}) {
     return TextStyle(
-        color: color != null ? color : Colors.black,
+        color: color != null ? color : Colors.grey,
         fontFamily: Get.locale!.languageCode == 'ar' ? 'Almarai' : 'Roboto',
         fontWeight: FontWeight.normal,
         fontSize: ScreenUtil().setSp(fontSize),
@@ -23,7 +23,7 @@ class FCITextStyle {
       double? height,
       FontStyle? fontStyle}) {
     return TextStyle(
-        color: color != null ? color : Colors.black,
+        color: color != null ? color : Colors.grey,
         fontFamily: Get.locale!.languageCode == 'ar' ? 'Almarai' : 'Roboto',
         fontWeight: FontWeight.bold,
         fontSize: ScreenUtil().setSp(fontSize),
@@ -33,9 +33,10 @@ class FCITextStyle {
 }
 
 class FCIColors {
+  static Color grey1() => Color(0xff888888);
   static Color sidebarBackGroundColor() => Color(0xffeaecf8);
   static Color iconColor() => Color(0xffe69736);
-  static Color primaryColor() => Color(0xff3c3c3c);
+  static Color primaryColor() => Color(0xff02CDBA);
   static Color accentColor() => Color(0xfff4f2f2);
   static Color bottomBarColor() => Color(0xffD6CFCF);
   static Color lightBlueColor() => Color(0xff7f91d4);
@@ -50,7 +51,7 @@ class FCIColors {
   static Color blueColor() => Color(0xff5689C0);
   static Color blackblueColor() => Color(0xff244D61);
   static Color backColor() => Color(0xffF3F1F1);
-  static Color calendarColor() => Color(0xffF3F1F1);
+  static Color avatarColor() => Color(0xffdfdfdf);
   static Color adsColor() => Color(0xff71543e);
   static Color textColor() => Color(0xff111111);
   static Color buttonColor2() => Color(0xffC4938C);

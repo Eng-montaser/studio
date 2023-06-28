@@ -23,7 +23,7 @@ class _ReservesScreenState extends State<ReservesScreen> {
   @override
   Widget build(BuildContext context) {
     return HomeBackground(
-      image: 'assets/images/02.jpeg',
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

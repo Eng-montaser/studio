@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:studio/logic/controllers/system_controller.dart';
 import 'package:studio/ui/account/account_view.dart';
 import 'package:studio/ui/contactus_screens/contactus_view.dart';
 import 'package:studio/ui/home/home_view.dart';
@@ -23,7 +24,7 @@ class MainController extends GetxController {
           label: 'Prints'.tr,
           title: 'Prints'.tr,
           image: 'assets/images/printer.png',
-          body: PrintsScreen()),
+          body: MyCarsScreen()),
       MenuItems(
           label: 'Reserves'.tr,
           title: 'Reserves'.tr,
@@ -40,6 +41,7 @@ class MainController extends GetxController {
           image: 'assets/images/call.png',
           body: ContactUs()),
     ];
+     //Get.put(SystemController(), permanent: true);
   }
 
   @override

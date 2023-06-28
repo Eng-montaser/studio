@@ -29,15 +29,7 @@ class Background extends StatelessWidget {
                 height: ScreenUtil().setHeight(260),
                 decoration: BoxDecoration(
                   color: FCIColors.primaryColor(),
-                  image: new DecorationImage(
-                    fit: BoxFit.cover,
-                    filterQuality: FilterQuality.low,
-                    alignment: Alignment.bottomCenter,
-                    colorFilter: ColorFilter.srgbToLinearGamma(),
-                    image: new AssetImage(
-                      'assets/images/back1.jpg',
-                    ),
-                  ),
+
                 ),
                 // child: Image.asset('assets/images/back1.jpg',
                 //     fit: BoxFit.cover),
@@ -52,7 +44,7 @@ class Background extends StatelessWidget {
                 //  height: size.height * .36,
 
                 child: Image.asset(
-                  'assets/images/logoWhite3.png',
+                  'assets/images/logo.png',
                   width: ScreenUtil().setWidth(150),
                   height: ScreenUtil().setHeight(210),
                   alignment: Alignment.center,
@@ -81,13 +73,13 @@ class Background extends StatelessWidget {
 class HomeBackground extends StatelessWidget {
   final Widget child;
   Widget? positionedchild;
-  final String image;
+  //final String image;
   final bool showLogo;
   // final bool show;
   HomeBackground(
       {Key? key,
       required this.child,
-      required this.image,
+     // required this.image,
       this.positionedchild,
       this.showLogo = true
       // this.show = true,
@@ -110,26 +102,11 @@ class HomeBackground extends StatelessWidget {
               child: Container(
                 width: size.width,
                 height: ScreenUtil().setHeight(200),
-                // decoration: BoxDecoration(
-                //   color: FCIColors.primaryColor(),
-                //   image: new DecorationImage(
-                //     fit: BoxFit.cover,
-                //     opacity: .4,
-                //     alignment: Alignment.center,
-                //     colorFilter: ColorFilter.mode(
-                //         FCIColors.primaryColor(), BlendMode.dstATop),
-                //     image: new AssetImage(
-                //       'assets/images/back.jpg',
-                //     ),
-                //   ),
-                // ),
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.cover,
-                  filterQuality: FilterQuality.low,
-                  alignment: Alignment.center,
-                  //     fit: BoxFit.cover),
+                decoration: BoxDecoration(
+                  color: FCIColors.primaryColor(),
+
                 ),
+
               ),
             ),
             Positioned(
@@ -137,25 +114,14 @@ class HomeBackground extends StatelessWidget {
               child: Container(
                 width: size.width,
                 height: ScreenUtil().setHeight(200),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                      Color.fromARGB(150, 0, 0, 0),
-                    ],
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                  ),
-                ),
+
                 alignment: Alignment.bottomCenter,
                 padding: EdgeInsets.symmetric(
                   vertical: 20.0,
                 ),
                 child: showLogo
                     ? Image.asset(
-                        'assets/images/logoWhite2.png',
+                        'assets/images/logo.png',
                         width: ScreenUtil().setWidth(100),
                         height: ScreenUtil().setHeight(120),
                         alignment: Alignment.center,

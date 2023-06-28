@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:studio/logic/controllers/splash_controller.dart';
 import 'package:studio/utils/FCIStyle.dart';
+import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -30,15 +31,24 @@ class _SplashScreenState extends State<SplashScreen> {
           body: GetBuilder<SplashController>(
               init: SplashController(),
               builder: (contxt) {
-                return Container(
-                  width: size.width,
-                  height: size.height,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('assets/images/preview.png',),
-                          alignment: Alignment.bottomCenter,
-                          filterQuality: FilterQuality.low,
-                          fit: BoxFit.cover)),
+                return Stack(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Center(
+                          child:WidgetAnimator(
+                            atRestEffect:  WidgetRestingEffects.size(),
+                            child:  Image.asset(
+                              'assets/images/logo.png',
+                              height: FCISize.height(context) * 0.2,
+                              width: FCISize.height(context) * 0.2,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 );
               })),
     );

@@ -1,24 +1,31 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:studio/database/services/post_service.dart';
+import 'package:studio/logic/controllers/system_controller.dart';
 import 'package:studio/route/route.dart';
 import 'package:studio/utils/FCIStyle.dart';
 import 'package:studio/widgets/custom_background.dart';
+import 'package:studio/widgets/get_message.dart';
 import 'package:studio/widgets/pin_code_widget.dart';
 import 'package:studio/widgets/stagger_animation.dart';
 
 class VerifyCode extends StatefulWidget {
   final String phoneNumber;
-//  final String verId;
+  final String verId;
+  final String sms;
 //  final Stream<firebase_auth.PhoneAuthCredential> verifySuccessStream;
 
   VerifyCode({
-//      this.verId,
+    required  this.verId,
     required this.phoneNumber,
+    required this.sms,
 //      this.verifySuccessStream
   });
 
@@ -62,8 +69,12 @@ class _VerifyCodeState extends State<VerifyCode> with TickerProviderStateMixin {
       duration: const Duration(seconds: 1),
       vsync: this,
     );
+    init();
   }
-
+init() async{
+    if(widget.sms.isNotEmpty)
+ _pinCodeController.text='${widget.sms}' ;
+}
   @override
   void dispose() {
 //    widget.verifySuccessStream?.listen(null);
@@ -118,11 +129,46 @@ class _VerifyCodeState extends State<VerifyCode> with TickerProviderStateMixin {
       ),
     );
     // ignore: deprecated_member_use
-    scaffoldKey.currentState?.showSnackBar(snackBar);
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  void _loginSMS(sms_code, context) async {
-    Get.toNamed(AppRoutes.main);
+  void _loginSMS(String sms_code, context) async {
+
+   // if(sms_code.isNotEmpty && widget.verId != null && widget.sms != null)
+    {
+      _playAnimation();
+      try {
+        print('verDat: ${widget.verId} kkk ${widget.sms} bbb${widget.verId}');
+        await PostService().register2(widget.verId,_pinCodeController.text).then((response) async {
+          print('${response.statusCode}  ${response.body}');
+          _stopAnimation();
+          if (response.statusCode == 200) {
+            var data = jsonDecode(response.body);
+if(data['status']) {
+  SharedPreferences shared_User =
+  await SharedPreferences.getInstance();
+  String token = data['Data'];
+  await shared_User.setString('token', token);
+  Get.put(SystemController(), permanent: true);
+  await Get.find<SystemController>().getUser();
+ // Get.offAllNamed(AppRoutes.main);
+} else {
+            print(response.body);
+            var data = jsonDecode(response.body);
+
+            GetMessageError(context,  "${data['message']}");
+          }
+          }
+        });
+      } catch (e) {
+
+        print('e: $e');
+        GetMessageError(context, "Connection Error");
+      }
+
+      // print('${fciAuthUserModel.user.email}');
+
+    }
   }
 
   @override

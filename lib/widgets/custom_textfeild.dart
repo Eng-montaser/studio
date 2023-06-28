@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
   final bool obsecure;
   final bool enabled;
   final Widget? suffixicon;
+  final Widget? prefixicon;
   final TextEditingController? controller;
   final String? initial;
   final int minLines; //Normal textInputField will be displayed
@@ -27,6 +28,7 @@ class CustomTextField extends StatelessWidget {
         this.icon = null,
         this.validate = null,
         this.suffixicon = null,
+        this.prefixicon = null,
         this.obsecure = false,
         this.enabled = true,
         this.onChanged,
@@ -47,13 +49,13 @@ class CustomTextField extends StatelessWidget {
       width: width == 0 ? FCISize.width(context) : width,
       height:height == 0 ?  ScreenUtil().setHeight(60) : height,
       padding: FCIPadding.symmetric(
-        height: 5,width: 10
+        height: 5,width: 0
       ),
       margin:  FCIPadding.symmetric(
           height: 10,width: 30
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: FCIColors.accentColor(),
           borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
@@ -82,12 +84,16 @@ class CustomTextField extends StatelessWidget {
         maxLines: maxLines,
         minLines: minLines,
         focusNode: focusNode,
+
         decoration:   InputDecoration(
           hintText: hintText,
           hintStyle: FCITextStyle.normal(16, color: FCIColors.textColor()),
           labelStyle: FCITextStyle.normal(14, color: Colors.grey),
-          labelText: hintText,
+         // labelText: hintText,
           border: InputBorder.none,
+          suffixIcon: suffixicon,
+          prefixIcon: prefixicon,
+
         ),
 
         // onChanged: onSearchTextChanged,

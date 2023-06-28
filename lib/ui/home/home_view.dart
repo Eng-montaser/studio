@@ -29,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
 
     return HomeBackground(
-      image: 'assets/images/back.jpg',
+
       child: GetBuilder<HomeController>(
           init: HomeController(),
           builder: (controller) {

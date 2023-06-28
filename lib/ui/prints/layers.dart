@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:studio/logic/controllers/prints/layers_controller.dart';
+import 'package:studio/logic/controllers/prints/carList_controller.dart';
 
 import '../../utils/FCIStyle.dart';
 
@@ -48,8 +48,8 @@ class _LayersScreenState extends State<LayersScreen> {
         ),
       ),
       backgroundColor: Colors.white,
-      body: GetBuilder<LayersController>(
-          init: LayersController(),
+      body: GetBuilder<CarListController>(
+          init: CarListController(),
           builder: (controller) {
             return Container(
                 margin: EdgeInsets.symmetric(

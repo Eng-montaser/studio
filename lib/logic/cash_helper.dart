@@ -50,5 +50,11 @@ class CashHelper {
     } else {
       return -1;
     }
+  }static Future<String?> getToken() async {
+    if (sharedPreferences!.containsKey('token')) {
+      return sharedPreferences!.getString('token');
+    } else {
+      return null;
+    }
   }
 }
